@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.urls import path, include
 
 urlpatterns = [
     path('login/', views.loginPage, name="login"),
@@ -19,4 +20,6 @@ urlpatterns = [
 
     path('topics/', views.topicsPage, name="topics"),
     path('activity/', views.activityPage, name="activity"),
+
+    
 ]

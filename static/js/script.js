@@ -67,3 +67,36 @@ if (photoInput)
 // Scroll to Bottom
 const conversationThread = document.querySelector(".room__box");
 if (conversationThread) conversationThread.scrollTop = conversationThread.scrollHeight;
+
+// script.js
+$(document).ready(function() {
+  $('#question-form').submit(function(event) {
+      event.preventDefault();
+      var question = $('#user-input').val().trim();
+      if (question !== '') {
+          $('#chat-messages').append('<div class="user-message">You: ' + question + '</div>');
+          $('#user-input').val('');
+          sendQuestion(question);
+      }
+  });
+});
+
+function sendQuestion(question) {
+  $.ajax({
+      url: '/chatbot/',
+      method: 'POST',
+      data: { question: question },
+      success: function(response) {
+          $('#chat-messages').append('<div class="bot-message">Chatbot: ' + response.response + '</div>');
+          scrollToBottom();
+      },
+      error: function(xhr, status, error) {
+          console.error('Error:', error);
+      }
+  });
+}
+
+function scrollToBottom() {
+  $('#chat-messages').animate({ scrollTop: $('#chat-messages')[0].scrollHeight }, 'slow');
+}
+
