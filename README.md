@@ -12,9 +12,7 @@ Welcome to **StudyBud**, a web application designed to help you study together w
 - **Cross-Site Request Forgery (CSRF) Protection**: Ensures security with user login and registration.
 - **Profile Section**: Enables users to upload images, add a bio, and specify interests.
 
-## Access the Site:
 
-The StudyBud web application can be accessed at [StudyBud](#) *(Replace `#` with the actual URL of your web application)*.
 
 ## Screenshots:
 
